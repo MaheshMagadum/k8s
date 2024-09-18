@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: Pod2
+spec:
+  containers:
+  - name: simple-app
+    image: simple-image
+    envFrom:
+    - configMapRef:
+        name: my-configmap
+
+# imperative approach
+# kubectl create configmap
+# kubectl create -f <file-of-configmap>
+# kubectl create configmap app-config --from-literal=NAME1=value1
+# kubectl create configmap app-config --from-file=app_config.properties
+
+# Declerative approach
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ConfigMap
+data:
+   sky_color : blue
+   sun_color : red
+   port : 30009
+# kubectl create -f config-map.yaml
