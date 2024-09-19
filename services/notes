@@ -1,0 +1,10 @@
+How different kubernetes services are accessed?
+
+ClusterIP: Access internally or via 
+kubectl port-forward.
+
+NodePort: Access via <Node-IP>:<NodePort>.
+
+LoadBalancer: Access via the assigned EXTERNAL-IP.
+
+Ingress: Access via a domain name after DNS and Ingress configuration.
