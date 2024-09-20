@@ -1,0 +1,3 @@
+NodePort exposes services via a port on all nodes, but you need to know the node IPs or set up an external load balancer yourself.
+
+LoadBalancer automatically provisions an external load balancer (when supported) and assigns an external IP for easy access.
