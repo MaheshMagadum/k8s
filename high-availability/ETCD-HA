@@ -1,0 +1,11 @@
+Internal Synchronization Mechanisms:
+
+The API servers, controller-managers, and schedulers all rely on the following internal synchronization mechanisms:
+
+etcd as a consistent data store.Leader election for active components like the controller-manager and scheduler.
+
+Load balancing for the API server to distribute requests and ensure availability.
+
+Leader election using Raft algorithm for etcd
+
+Odd number of master nodes should be used as quorum. ex: quorum of 3 is 2 and quorum of 5 is 3
