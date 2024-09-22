@@ -1,0 +1,26 @@
+Troubleshooting helpful commands
+
+Control plane failure:
+
+>service kube-apiserver status 
+>service kube-controller-manager status 
+>kubectl get nodes
+>kubectl get pods -n kube-system
+
+Check service logs:
+
+>kubectl logs kube-apiserver-master -n kube-system 
+>journalctl -u kube-apiserver
+>service kublet status 
+>journalctl kublet status
+
+Check certificate worker kublet:
+
+>openssl x509 -in /var/lib/kublet/worker1.crt -text
+
+Worker node failure:
+
+>kubectl get nodes
+>kubectl describe node <node-name>
+
+
