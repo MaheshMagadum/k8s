@@ -1,0 +1,12 @@
+Backup ETCD:
+
+>ETCD_API=3 etcdctl snapshot save snapshot.db
+>ETCD_API=3 etcdctl snapshot status snapshot.db => gives details and size
+
+Restore ETCD:
+> service kube-apiserver stop
+>ETCD_API=3 etcdctl snapshot restore snapshot.db --data-dir /var/lib/backup-etcd
+>etcd.service needs to be updated with path /var/lib/backup-etcd
+>systemctl daemon-reload
+>service etcd restart
+>service kube-apiserver start
