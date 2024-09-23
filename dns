@@ -1,0 +1,3 @@
+Why do we mention coreDNS server name in kublet config?
+
+We mention the CoreDNS server name in the kubelet so that:Kubelet can configure pods to point to CoreDNS for DNS resolution.Pods can resolve service and pod names within the Kubernetes cluster.Service discovery and intra-cluster communication work correctly based on DNS names.Without this configuration, DNS-based service discovery within the cluster would not function, and pods would not be able to communicate using service names.
