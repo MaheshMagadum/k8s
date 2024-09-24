@@ -1,0 +1,4 @@
+kubectl auth can-i create pods deployments
+kubectl auth can-i delete nodes
+kubectl auth can-i delete deployments --as Ramesh --namespace validation
+ 
