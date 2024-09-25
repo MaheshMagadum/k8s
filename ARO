@@ -1,0 +1,9 @@
+ARO:
+
+Nodes: The actual machines (master or worker) that run workloads or control plane services in the OpenShift cluster.
+
+Machines: Representations of the virtual machines on which the nodes run, managed by the OpenShift Machine API.
+
+MachineSets: Templates used to scale machines automatically by defining how many machines of a certain type should be created.
+
+In short, MachineSets manage Machines, which in turn correspond to Nodes in the ARO cluster.
