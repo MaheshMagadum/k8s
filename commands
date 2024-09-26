@@ -1,3 +1,6 @@
 Commands
 
 kubectl get nodes -o json | jq '.items[].spec.taints'
+
+https://docs.openshift.com/container-platform/4.9/networking/routes/route-configuration.html
+tcpdump -s 0 -i any -w /tmp/dump.pcap host <podip 1> && host <podip 2> 
