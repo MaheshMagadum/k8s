@@ -1,0 +1,3 @@
+Update Route to Gradually Shift Traffic:
+
+By modifying the Route and adjusting the traffic weights, you can implement a gradual Blue-Green Deployment in an ARO Cluster, allowing you to shift traffic in small increments, monitor the deployment, and ensure a smooth transition with minimal risk.
