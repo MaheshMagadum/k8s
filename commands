@@ -1,6 +1,18 @@
-Commands
+Commands:
+========
 
 kubectl get nodes -o json | jq '.items[].spec.taints'
 
+TCPDUMP:
+--------
 https://docs.openshift.com/container-platform/4.9/networking/routes/route-configuration.html
 tcpdump -s 0 -i any -w /tmp/dump.pcap host <podip 1> && host <podip 2> 
+
+Traffic generator:
+------------------------------------------------------
+#!/bin/bash
+while(true);
+do curl -s https://my-application.com/ -o /dev/null;
+        sleep 1;
+done
+-----------------------------------------------------
