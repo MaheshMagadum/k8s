@@ -1,0 +1,16 @@
+use cases:
+
+- Isolate Dedicated Workloads
+
+- you may have specialized hardware resources (e.g., GPUs or high-memory nodes) or configurations optimized for certain workloads.
+
+-Prevent Scheduling on Specific Nodes: Some nodes might be reserved for maintenance, batch processing, or non-interruptible jobs.
+
+- Dedicated System Nodes: Use a taint on these nodes and ensure that only system pods with matching tolerations are scheduled there.
+
+- Maintenance or Draining Nodes: Apply a taint to the node to prevent new pods from being scheduled, and the existing pods will be evicted (if configured to do so).
+
+- Handling Node Conditions( unhealthy nodes): Kubernetes automatically taints such nodes, and you can configure your pods to tolerate specific conditions if they are capable of running under such scenarios
+
+- Compliance and Security Policies enforcement: Certain nodes might be hardened or compliant with security standards (e.g., PCI-DSS), and only specific workloads should be allowed.
+
