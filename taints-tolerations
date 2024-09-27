@@ -1,4 +1,57 @@
-use cases:
+>kubectl taint nodes <node-name> dedicated=critical:NoSchedule
+:OR:
+apiVersion: v1
+kind: Node
+metadata:
+  name: node1
+spec:
+  taints:
+    - key: "dedicated"
+      value: "critical"
+      effect: "NoSchedule"
+
+Now:
+apiVersion: v1
+kind: Pod
+metadata:
+  name: critical-app
+spec:
+  tolerations:
+    - key: "dedicated"
+      operator: "Equal"
+      value: "critical"
+      effect: "NoSchedule" or "NoExecute"
+  containers:
+    - name: app-container
+      image: nginx
+
+-------------------------------
+
+kubectl taint nodes <node-name> team=data-science:NoSchedule
+
+apiVersio: v1
+kind: Pod
+metadata:
+   name: process-data
+spec:
+ containers:
+ - name: data-app
+   image: <imageurl>
+ tolerations:
+   - key: "team"
+     Operator: "Equal"
+     value: "data-process'
+     effect: NoSchedule
+----------------------------
+
+NoSchedule: New pods without tolerations will not be scheduled on the node.
+
+PreferNoSchedule: New pods without tolerations will try to avoid being scheduled on the node but may be placed there if needed.
+
+NoExecute: Existing pods will be evicted from the node if they don't have a matching toleration.
+
+--------------------------
+Use Cases:
 
 - Isolate Dedicated Workloads
 
